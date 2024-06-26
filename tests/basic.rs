@@ -26,8 +26,8 @@ fn test_init() {
     assert_eq!(state.pebbles_count, 20);
     assert_eq!(state.max_pebbles_per_turn, 3);
     assert_eq!(state.pebbles_remaining, 20);
-    assert_eq!(state.difficulty, DifficultyLevel::Easy);
-    assert_eq!(state.first_player, Player::User);
+    assert!(state.difficulty == DifficultyLevel::Easy);
+    assert!(state.first_player == Player::User);
     assert_eq!(state.winner, ArchivedOption::None);
 }
 
@@ -78,8 +78,8 @@ fn test_restart() {
     assert_eq!(state.pebbles_count, 30);
     assert_eq!(state.max_pebbles_per_turn, 5);
     assert_eq!(state.pebbles_remaining, 30);
-    assert_eq!(state.difficulty, DifficultyLevel::Hard);
-    assert_eq!(state.first_player, Player::User);
+    assert!(state.difficulty == DifficultyLevel::Hard);
+    assert!(state.first_player == Player::User);
     assert_eq!(state.winner, ArchivedOption::None);
 }
 
@@ -95,7 +95,7 @@ fn test_state() {
     assert_eq!(state.pebbles_count, state.pebbles_count);
     assert_eq!(state.max_pebbles_per_turn, state.max_pebbles_per_turn);
     assert_eq!(state.pebbles_remaining, state.pebbles_remaining);
-    assert_eq!(state.difficulty, state.difficulty);
-    assert_eq!(state.first_player, state.first_player);
+    assert!(state.difficulty == state.difficulty);
+    assert!(state.first_player == state.first_player);
     assert_eq!(state.winner, state.winner);
 }
