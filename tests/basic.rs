@@ -3,6 +3,7 @@ use gtest::{Program, System};
 use pebbles_game_io::{PebblesInit, DifficultyLevel, PebblesAction, GameState, Player};
 use rkyv::option::ArchivedOption;
 
+/// Initialize the program with default settings.
 fn init_program(system: &System) -> Program {
     let program = Program::current(system);
     let init_msg = PebblesInit {
