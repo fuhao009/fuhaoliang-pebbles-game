@@ -52,10 +52,12 @@ extern "C" fn handle() {
                     }
                 }
                 PebblesAction::GiveUp => {
+                    // 玩家放弃，程序获胜
                     state.winner = Some(Player::Program);
                     msg::reply(PebblesEvent::Won(Player::Program), 0).expect("Unable to reply with event");
                 }
                 PebblesAction::Restart { difficulty, pebbles_count, max_pebbles_per_turn } => {
+                    // 重新开始游戏，重置状态
                     state.pebbles_count = pebbles_count;
                     state.max_pebbles_per_turn = max_pebbles_per_turn;
                     state.pebbles_remaining = pebbles_count;
@@ -70,6 +72,7 @@ extern "C" fn handle() {
 
 #[no_mangle]
 extern "C" fn state() {
+    // 回复当前游戏状态
     unsafe {
         if let Some(ref state) = PEBBLES_GAME {
             msg::reply(state, 0).expect("Unable to reply with state");
